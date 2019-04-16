@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		022E96E8226661220016AFB0 /* ComplexObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 022E96E7226661220016AFB0 /* ComplexObject.swift */; };
 		D84E57A020E3219100EC6FB8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D84E579F20E3219100EC6FB8 /* AppDelegate.swift */; };
 		D84E57A720E3219500EC6FB8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D84E57A620E3219500EC6FB8 /* Assets.xcassets */; };
 		D84E57AA20E3219500EC6FB8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D84E57A820E3219500EC6FB8 /* LaunchScreen.storyboard */; };
@@ -28,6 +29,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		022E96E7226661220016AFB0 /* ComplexObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComplexObject.swift; sourceTree = "<group>"; };
 		D84E579C20E3219100EC6FB8 /* DNDNative.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DNDNative.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D84E579F20E3219100EC6FB8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D84E57A620E3219500EC6FB8 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -89,6 +91,7 @@
 				D84E57AB20E3219500EC6FB8 /* Info.plist */,
 				D84E57C320E322AC00EC6FB8 /* TableViewCell.swift */,
 				D84E57C420E322AC00EC6FB8 /* TableViewCell.xib */,
+				022E96E7226661220016AFB0 /* ComplexObject.swift */,
 			);
 			path = DNDNative;
 			sourceTree = "<group>";
@@ -152,9 +155,11 @@
 				TargetAttributes = {
 					D84E579B20E3219100EC6FB8 = {
 						CreatedOnToolsVersion = 9.3;
+						LastSwiftMigration = 1010;
 					};
 					D84E57AF20E3219600EC6FB8 = {
 						CreatedOnToolsVersion = 9.3;
+						LastSwiftMigration = 1010;
 						TestTargetID = D84E579B20E3219100EC6FB8;
 					};
 				};
@@ -205,6 +210,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D84E57C520E322AC00EC6FB8 /* TableViewCell.swift in Sources */,
+				022E96E8226661220016AFB0 /* ComplexObject.swift in Sources */,
 				D84E57C120E321AF00EC6FB8 /* MainViewController.swift in Sources */,
 				D84E57A020E3219100EC6FB8 /* AppDelegate.swift in Sources */,
 			);
@@ -366,10 +372,12 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = com.hudl.asheyng.DNDNative;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
+				VALID_ARCHS = "arm64 arm64e armv7 armv7s";
 			};
 			name = Debug;
 		};
@@ -387,8 +395,9 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.hudl.asheyng.DNDNative;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
+				VALID_ARCHS = "arm64 arm64e armv7 armv7s";
 			};
 			name = Release;
 		};
@@ -407,7 +416,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.hudl.asheyng.DNDNativeTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/DNDNative.app/DNDNative";
 			};
@@ -428,7 +437,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.hudl.asheyng.DNDNativeTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/DNDNative.app/DNDNative";
 			};

@@ -11,7 +11,7 @@ import UIKit
 class MainViewController: UIViewController {
 
     @IBOutlet weak var tableView: UITableView!
-    var items: [String] = (0..<80).map { i in "\(i)" }
+    var items: [ComplexObject] = (0..<40).map { i in ComplexObject(name: "\(i) Lorem ipsum dolor sit amet, has nulla menandri efficiendi et, probo ludus dicunt duo an. Lobortis reformidans an mea in.") }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -33,7 +33,7 @@ extension MainViewController: UITableViewDropDelegate, UITableViewDragDelegate {
     func tableView(_ tableView: UITableView, itemsForBeginning session: UIDragSession, at indexPath: IndexPath) -> [UIDragItem] {
         print("itemsForBeginning")
         let item = self.items[indexPath.row]
-        let itemProvider = NSItemProvider(object: item as NSString)
+        let itemProvider = NSItemProvider(object: item)
         let dragItem = UIDragItem(itemProvider: itemProvider)
         dragItem.localObject = item
         return [dragItem]
@@ -70,8 +70,13 @@ extension MainViewController: UITableViewDropDelegate, UITableViewDragDelegate {
                 var indexPaths = [IndexPath]()
                 for (index, item) in coordinator.items.enumerated() {
                     let indexPath = IndexPath(row: destinationIndexPath.row + index, section: 0)
-                    self.items.insert(item.dragItem.localObject as! String, at: indexPath.row)
+//                    self.items.insert(item.dragItem.localObject, at: indexPath.row)
                     indexPaths.append(indexPath)
+                    item.dragItem.itemProvider.loadObject(ofClass: ComplexObject.self) { subject, error in
+                        if let subject = subject as? ComplexObject {
+                            self.items.insert(subject, at: indexPath.row)
+                        }
+                    }
                 }
                 tableView.insertRows(at: indexPaths, with: .none)
             }, completion: nil)
@@ -93,8 +98,7 @@ extension MainViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "TableViewCell", for: indexPath) as! TableViewCell
         let item = items[indexPath.row]
-        let text = "\(item) Lorem ipsum dolor sit amet, has nulla menandri efficiendi et, probo ludus dicunt duo an. Lobortis reformidans an mea in."
-        cell.configureWithLabel(text)
+        cell.configureWithLabel(item.loremIpsum)
         return cell
     }
     
